@@ -14,6 +14,8 @@ export class AddSongComponent {
   addSongForm: FormGroup;
   formBuilder = inject(FormBuilder);
   router = inject(Router)
+  albums = this.musicService.albums;
+  artists = this.musicService.artists;
 
   constructor() {
     this.addSongForm = this.formBuilder.group({

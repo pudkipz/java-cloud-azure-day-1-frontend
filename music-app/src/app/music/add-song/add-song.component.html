@@ -6,8 +6,16 @@
   <label for="song-title">Title</label><br>
   <input type="text" id="song-title" formControlName="title"><br>
   <label for="song-album">Album</label><br>
-  <input type="text" id="song-album" formControlName="album"><br>
+  <select id="song-album" formControlName="album">
+    @for (album of albums | async; track album.id) {
+      <option [value]="album.title" >{{album.title}}</option>
+    }
+  </select><br>
   <label for="song-artist">Artist</label><br>
-  <input type="text" id="song-artist" formControlName="artist"><br>
+  <select id="song-artist" formControlName="artist">
+    @for (artist of artists | async; track artist.id) {
+      <option [value]="artist.name">{{artist.name}}</option>
+    }
+    </select><br>
   <button class="add-btn" type="submit">Add</button>
 </form>

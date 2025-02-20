@@ -1,1 +1,15 @@
-<p>add-album works!</p>
+<h2>Add an album</h2>
+
+<label id="album-form-error" for="album-form" style="display: none">Something went wrong. Are you sure no album with that title already exists?</label>
+
+<form id="album-form" [formGroup]="addAlbumForm" (submit)="addAlbum()">
+  <label for="album-title">Title</label><br>
+  <input type="text" id="album-title" formControlName="title"><br>
+  <label for="album-artist">Artist</label><br>
+  <select id="album-artist" formControlName="artist">
+    @for (artist of artists | async; track artist.id) {
+      <option [value]="artist.name">{{artist.name}}</option>
+    }
+    </select><br>
+  <button class="add-btn" type="submit">Add</button>
+</form>

@@ -36,6 +36,41 @@ export class MusicService {
     ));
   }
 
+  async addAlbum(album: {title: string, artist: string}): Promise<boolean> {
+    let albums = await this.albums;
+    if (albums.filter(a => a.title == album.title).length > 0) {
+      return false;
+    }
+    let artists = await this.artists;
+    let artist = artists.find(a => a.name == album.artist);
+    if (artist == null) return false;
+
+    let s = firstValueFrom(await this.http.post(
+      `${this.env.apiUrl}/albums`, {
+        title: album.title,
+        artist: artist.id
+      },
+      {headers: {'content-type': 'application/json'}}
+    ))
+    // console.log(s)
+    return true;
+  }
+
+  async addArtist(artistName: string): Promise<boolean> {
+    let artists = await this.artists;
+    if (artists.filter(a => a.name == artistName).length > 0) {
+      return false;
+    }
+    let s = firstValueFrom(await this.http.post(
+      `${this.env.apiUrl}/artists`, {
+        name: artistName
+      },
+      {headers: {'content-type': 'application/json'}}
+    ))
+    // console.log(s)
+    return true;
+  }
+
   async addSong(song: {title: string, artist: string, album: string}): Promise<boolean> {
     // console.log(song)
     let artists = await this.artists;
@@ -45,12 +80,13 @@ export class MusicService {
     if (!artist || !album) {
       return false
     }
-    let s = await this.http.post(
+    let s = firstValueFrom(await this.http.post(
       `${this.env.apiUrl}/songs`, {
         title: song.title,
         album: album.id,
         artist: artist.id
-      }
+      },
+      {headers: {'content-type': 'application/json'}})
     )
     
     return true;

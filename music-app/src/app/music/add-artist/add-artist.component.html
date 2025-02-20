@@ -1,1 +1,9 @@
-<p>add-artist works!</p>
+<h2>Add an artist</h2>
+
+<label id="artist-form-error" for="artist-form" style="display: none">Something went wrong. Are you sure there isn't already an artist with that name?</label>
+
+<form id="artist-form" [formGroup]="addArtistForm" (submit)="addArtist()">
+  <label for="artist-title">Name</label><br>
+  <input type="text" id="artist-name" formControlName="name"><br>
+  <button class="add-btn" type="submit">Add</button>
+</form>
