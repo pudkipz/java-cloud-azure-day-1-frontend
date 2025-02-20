@@ -4,6 +4,8 @@ import { ViewComponent } from './view/view.component';
 import { AddSongComponent } from './add-song/add-song.component';
 import { AddArtistComponent } from './add-artist/add-artist.component';
 import { AddAlbumComponent } from './add-album/add-album.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +17,8 @@ import { AddAlbumComponent } from './add-album/add-album.component';
     AddAlbumComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule, FormsModule,
+  ],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class MusicModule { }

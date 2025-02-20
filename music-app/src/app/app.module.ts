@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { MusicModule } from './music/music.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { MusicModule } from './music/music.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     LayoutModule,
     MusicModule,
   ],
