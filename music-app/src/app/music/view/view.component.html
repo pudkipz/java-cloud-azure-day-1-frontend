@@ -3,7 +3,8 @@
     <li>
       <details>
         <summary>{{artist.name}}</summary>
-        <ul><h4>Albums</h4>
+        <ul>
+          <!-- <h4>Albums</h4> -->
           @for (album of artist.albums; track album.id) {
             <li><details>
               <summary>{{album.title}}</summary>
