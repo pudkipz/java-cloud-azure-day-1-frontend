@@ -1,1 +1,13 @@
-<p>add-song works!</p>
+<h2>Add a song</h2>
+
+<label id="song-form-error" for="song-form" style="display: none">Something went wrong. Are you sure that's the correct spelling?</label>
+
+<form id="song-form" [formGroup]="addSongForm" (submit)="addSong()">
+  <label for="song-title">Title</label><br>
+  <input type="text" id="song-title" formControlName="title"><br>
+  <label for="song-album">Album</label><br>
+  <input type="text" id="song-album" formControlName="album"><br>
+  <label for="song-artist">Artist</label><br>
+  <input type="text" id="song-artist" formControlName="artist"><br>
+  <button class="add-btn" type="submit">Add</button>
+</form>
