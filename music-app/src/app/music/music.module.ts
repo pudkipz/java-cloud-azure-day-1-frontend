@@ -8,6 +8,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlaylistsViewComponent } from './playlists-view/playlists-view.component';
 import { MusicViewComponent } from './music-view/music-view.component';
+import { AddPlaylistComponent } from './add-playlist/add-playlist.component';
 
 
 
@@ -18,7 +19,8 @@ import { MusicViewComponent } from './music-view/music-view.component';
     AddArtistComponent,
     AddAlbumComponent,
     PlaylistsViewComponent,
-    MusicViewComponent
+    MusicViewComponent,
+    AddPlaylistComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule

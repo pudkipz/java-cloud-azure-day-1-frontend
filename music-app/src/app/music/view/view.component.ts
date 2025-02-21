@@ -9,10 +9,10 @@ import { Artist } from '../model/artist';
   styleUrl: './view.component.css'
 })
 export class ViewComponent {
-  musicService = inject(MusicService);
+  // musicService = inject(MusicService);
 
-  // constructor(private readonly musicService: MusicService) {}
+  // // constructor(private readonly musicService: MusicService) {}
 
-  artists = this.musicService.artists;
+  // artists = this.musicService.artists;
 
 }

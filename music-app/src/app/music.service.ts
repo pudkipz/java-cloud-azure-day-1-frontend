@@ -44,6 +44,21 @@ export class MusicService {
     ));
   }
 
+  async addPlaylist(playlistName: string): Promise<boolean> {
+    let playlists = await this.playlists;
+    if (playlists.filter(pl => pl.name == playlistName).length > 0) {
+      return false;
+    }
+    let s = firstValueFrom(await this.http.post(
+      `${this.env.apiUrl}/playlists`, {
+        name: playlistName
+      },
+      {headers: {'content-type': 'application/json'}}
+    ))
+    // console.log(s)
+    return true;
+  }
+
   async addAlbum(album: {title: string, artist: string}): Promise<boolean> {
     let albums = await this.albums;
     if (albums.filter(a => a.title == album.title).length > 0) {

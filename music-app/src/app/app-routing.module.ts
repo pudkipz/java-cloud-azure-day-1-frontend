@@ -4,6 +4,7 @@ import { ViewComponent } from './music/view/view.component';
 import { AddAlbumComponent } from './music/add-album/add-album.component';
 import { AddArtistComponent } from './music/add-artist/add-artist.component';
 import { AddSongComponent } from './music/add-song/add-song.component';
+import { AddPlaylistComponent } from './music/add-playlist/add-playlist.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'add/song',
     component: AddSongComponent
+  },
+  {
+    path: 'add/playlist',
+    component: AddPlaylistComponent
   }
 ];
 

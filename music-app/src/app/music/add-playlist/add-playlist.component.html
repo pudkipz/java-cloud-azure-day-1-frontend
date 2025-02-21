@@ -1,0 +1,9 @@
+<h2>Add a playlist</h2>
+
+<label id="playlist-form-error" for="playlist-form" style="display: none">Something went wrong. Are you sure there isn't already a playlist with that name?</label>
+
+<form id="playlist-form" [formGroup]="addPlaylistForm" (submit)="addPlaylist()">
+  <label for="playlist-name">Name</label><br>
+  <input type="text" id="playlist-name" formControlName="name"><br>
+  <button class="add-btn" type="submit">Add</button>
+</form>
