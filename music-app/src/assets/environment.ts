@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: 'http://localhost:5000',
+    apiUrl: 'https://ms-music-app.azurewebsites.net'  //'http://localhost:5000',
   };
   
