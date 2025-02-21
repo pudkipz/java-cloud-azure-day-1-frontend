@@ -1,1 +1,14 @@
-<p>playlists-view works!</p>
+<h2>Playlists</h2>
+
+<ul>
+  @for (playlist of playlists | async; track playlist.id) {
+    <li><details>
+      <summary>{{playlist.name}}</summary>
+      <ul>
+      @for (song of playlist.songs; track song.id) {
+        <li>{{song.title}}</li>
+      }
+    </ul>
+    </details></li>
+  }
+</ul>

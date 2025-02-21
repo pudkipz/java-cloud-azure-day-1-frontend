@@ -5,6 +5,7 @@ import { environment } from '../assets/environment';
 import { firstValueFrom } from 'rxjs';
 import { Song } from './music/model/song';
 import { Album } from './music/model/album';
+import { Playlist } from './music/model/playlist';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,13 @@ export class MusicService {
   env = environment;
 
   // constructor() { }
+
+  get playlists(): Promise<Playlist[]> {
+    // @ts-ignore
+    return firstValueFrom(this.http.get(
+      `${this.env.apiUrl}/playlists`,
+    ));
+  }
 
   get artists(): Promise<Artist[]> {
     // @ts-ignore

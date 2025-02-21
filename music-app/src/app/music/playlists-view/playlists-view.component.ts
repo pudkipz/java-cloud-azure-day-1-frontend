@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MusicService } from '../../music.service';
 
 @Component({
   selector: 'app-playlists-view',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './playlists-view.component.css'
 })
 export class PlaylistsViewComponent {
-
+  musicService = inject(MusicService);
+  playlists = this.musicService.playlists;
 }
