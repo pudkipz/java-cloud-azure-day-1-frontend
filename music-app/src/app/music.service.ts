@@ -44,13 +44,27 @@ export class MusicService {
     ));
   }
 
+  async removeSongsFromPlaylist(toRemove: Map<number, number[]>) {
+    console.log(toRemove)
+    for (const playlist of toRemove.keys()) {
+      console.log(playlist)
+      console.log(toRemove.get(playlist))
+      let s = firstValueFrom(await this.http.put(
+        `${this.env.apiUrl}/playlists/${playlist}/remove`,
+          // @ts-ignore
+          toRemove.get(playlist),
+        {headers: {'content-type': 'application/json'}}
+      ))
+    }
+    return true;
+  }
+
   async addSongsToPlaylist(songs: number[], playlist: number) {
     let s = firstValueFrom(await this.http.put(
       `${this.env.apiUrl}/playlists/${playlist}/addsongs`,
         songs.map(s => {return {id: s}}),
       {headers: {'content-type': 'application/json'}}
     ))
-    console.log(s)
     return true;
   }
 

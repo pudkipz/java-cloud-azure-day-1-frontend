@@ -11,6 +11,7 @@ export class ViewComponent {
   musicService = inject(MusicService);
   selectedSongs: number[] = [];
   selectedPlaylistId: number = -1;
+  selectedPlaylistSongs: Map<number, number[]> = new Map<number, number[]>();
 
   onMusicViewChange(event: any) {
     if (!this.selectedSongs.includes(event.target.value))
@@ -21,8 +22,26 @@ export class ViewComponent {
     this.selectedPlaylistId = event.target.value;
   }
 
+  onPlaylistViewSongChange(event: any) {
+    console.log(event)
+    const playlistId: number = event.target.value.split(',')[0];
+    const songIndex: number = event.target.value.split(',')[1];
+    console.log(playlistId)
+    console.log(songIndex)
+    if (!this.selectedPlaylistSongs.has(playlistId)) {
+      this.selectedPlaylistSongs.set(playlistId, [])
+    }
+    // @ts-ignore
+    if (!this.selectedPlaylistSongs.get(playlistId).includes(songIndex)) {
+      // @ts-ignore
+      this.selectedPlaylistSongs.get(playlistId).push(songIndex);
+    } else {
+      this.selectedPlaylistSongs.get(playlistId)?.splice(songIndex, 1)
+    }
+  }
+
   removeFromPlaylist() {
-    // this.musicService.removeSongsFromPlaylist(this.selectedSongs, this.selectedPlaylistId);
+    this.musicService.removeSongsFromPlaylist(this.selectedPlaylistSongs);
   }
 
   addToPlaylist() {

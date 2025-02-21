@@ -1,12 +1,14 @@
-<div>
-  <app-music-view (notifyView)="onMusicViewChange($event)" />
-</div>
+<div class="main-view">
+  <div class="scroll-container">
+    <app-music-view (notifyView)="onMusicViewChange($event)" />
+  </div>
 
-<div>
-  <button (click)="addToPlaylist()">Add to playlist -></button><br>
-  <button (click)="removeFromPlaylist()">Remove from playlist <-</button>
-</div>
+  <div class="scroll-container">
+    <button (click)="addToPlaylist()">Add to playlist -></button><br>
+    <button (click)="removeFromPlaylist()">Remove from playlist <-</button>
+  </div>
 
-<div>
-  <app-playlists-view (notifyView)="onPlaylistViewChange($event)" />
+  <div class="scroll-container">
+    <app-playlists-view (notifyView)="onPlaylistViewChange($event)" (notifySongChange)="onPlaylistViewSongChange($event)" />
+  </div>
 </div>

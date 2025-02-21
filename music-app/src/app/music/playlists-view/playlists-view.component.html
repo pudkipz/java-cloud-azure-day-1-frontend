@@ -5,8 +5,8 @@
     <li><details>
       <summary>{{playlist.name}} <input type="radio" value="{{playlist.id}}" name="playlist-radio-group" (change)="onChange($event)" /></summary>
       <ul>
-      @for (song of playlist.songs; track song.id) {
-        <li>{{song.title}}</li>
+      @for (song of playlist.songs; track $index; let idx = $index) {
+        <li>{{song.title}} <input type="checkbox" value="{{playlist.id}},{{idx}}" (change)="onSongChange($event)" /></li>
       }
     </ul>
     </details></li>

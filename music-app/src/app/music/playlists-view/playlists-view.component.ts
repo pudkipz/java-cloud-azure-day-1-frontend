@@ -11,9 +11,13 @@ export class PlaylistsViewComponent {
   musicService = inject(MusicService);
   playlists = this.musicService.playlists;
   @Output() notifyView: EventEmitter<Event> = new EventEmitter();
-    
+  @Output() notifySongChange: EventEmitter<Event> = new EventEmitter();
 
   onChange(event: Event) {
     this.notifyView.emit(event);
+  }
+
+  onSongChange(event: Event) {
+    this.notifySongChange.emit(event);
   }
 }

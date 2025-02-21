@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-view {
+    /* display: flex; */
+    /* justify-content: space-evenly; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.scroll-container {
+    /* height: calc(100vh - 120px); */
+  
+    overflow-y: scroll;
+}
