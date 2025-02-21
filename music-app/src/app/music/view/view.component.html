@@ -1,12 +1,12 @@
 <div>
-  <app-music-view />
+  <app-music-view (notifyView)="onMusicViewChange($event)" />
 </div>
 
 <div>
-  <button>Add to playlist -></button><br>
-  <button>Remove from playlist <-</button>
+  <button (click)="addToPlaylist()">Add to playlist -></button><br>
+  <button (click)="removeFromPlaylist()">Remove from playlist <-</button>
 </div>
 
 <div>
-  <app-playlists-view />
+  <app-playlists-view (notifyView)="onPlaylistViewChange($event)" />
 </div>

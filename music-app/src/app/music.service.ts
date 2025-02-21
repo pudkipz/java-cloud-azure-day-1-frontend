@@ -44,6 +44,16 @@ export class MusicService {
     ));
   }
 
+  async addSongsToPlaylist(songs: number[], playlist: number) {
+    let s = firstValueFrom(await this.http.put(
+      `${this.env.apiUrl}/playlists/${playlist}/addsongs`,
+        songs.map(s => {return {id: s}}),
+      {headers: {'content-type': 'application/json'}}
+    ))
+    console.log(s)
+    return true;
+  }
+
   async addPlaylist(playlistName: string): Promise<boolean> {
     let playlists = await this.playlists;
     if (playlists.filter(pl => pl.name == playlistName).length > 0) {

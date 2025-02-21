@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { MusicService } from '../../music.service';
 import { Artist } from '../model/artist';
 
@@ -14,5 +14,12 @@ export class MusicViewComponent {
   // constructor(private readonly musicService: MusicService) {}
 
   artists = this.musicService.artists;
+
+  @Output() notifyView: EventEmitter<Event> = new EventEmitter();
+      
+  
+    onChange(event: Event) {
+      this.notifyView.emit(event);
+    }
 
 }

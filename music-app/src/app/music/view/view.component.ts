@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { MusicService } from '../../music.service';
-import { Artist } from '../model/artist';
 
 @Component({
   selector: 'app-view',
@@ -9,10 +8,24 @@ import { Artist } from '../model/artist';
   styleUrl: './view.component.css'
 })
 export class ViewComponent {
-  // musicService = inject(MusicService);
+  musicService = inject(MusicService);
+  selectedSongs: number[] = [];
+  selectedPlaylistId: number = -1;
 
-  // // constructor(private readonly musicService: MusicService) {}
+  onMusicViewChange(event: any) {
+    if (!this.selectedSongs.includes(event.target.value))
+      this.selectedSongs.push(event.target.value);
+  }
 
-  // artists = this.musicService.artists;
+  onPlaylistViewChange(event: any) {
+    this.selectedPlaylistId = event.target.value;
+  }
 
+  removeFromPlaylist() {
+    // this.musicService.removeSongsFromPlaylist(this.selectedSongs, this.selectedPlaylistId);
+  }
+
+  addToPlaylist() {
+    this.musicService.addSongsToPlaylist(this.selectedSongs, this.selectedPlaylistId);
+  }
 }

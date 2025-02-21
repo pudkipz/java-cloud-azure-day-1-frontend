@@ -3,7 +3,7 @@
 <ul>
   @for (playlist of playlists | async; track playlist.id) {
     <li><details>
-      <summary>{{playlist.name}}</summary>
+      <summary>{{playlist.name}} <input type="radio" value="{{playlist.id}}" name="playlist-radio-group" (change)="onChange($event)" /></summary>
       <ul>
       @for (song of playlist.songs; track song.id) {
         <li>{{song.title}}</li>

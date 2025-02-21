@@ -9,7 +9,7 @@
               <li><details>
                 <summary>{{album.title}}</summary>
                 <ul>@for (song of album.songs; track song.id) {
-                  <li>{{song.title}}</li>}</ul>
+                  <li>{{song.title}} <input type="checkbox" value="{{song.id}}" (change)="onChange($event)" /></li>}</ul>
               </details></li>
             }
           </ul>
