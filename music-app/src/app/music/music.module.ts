@@ -6,6 +6,8 @@ import { AddArtistComponent } from './add-artist/add-artist.component';
 import { AddAlbumComponent } from './add-album/add-album.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PlaylistsViewComponent } from './playlists-view/playlists-view.component';
+import { MusicViewComponent } from './music-view/music-view.component';
 
 
 
@@ -14,7 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ViewComponent,
     AddSongComponent,
     AddArtistComponent,
-    AddAlbumComponent
+    AddAlbumComponent,
+    PlaylistsViewComponent,
+    MusicViewComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule

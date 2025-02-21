@@ -1,19 +1,6 @@
-<ul><h3>Artists</h3>
-  @for (artist of artists | async; track artist.id) {
-    <li>
-      <details>
-        <summary>{{artist.name}}</summary>
-        <ul>
-          <!-- <h4>Albums</h4> -->
-          @for (album of artist.albums; track album.id) {
-            <li><details>
-              <summary>{{album.title}}</summary>
-              <ul>@for (song of album.songs; track song.id) {
-                <li>{{song.title}}</li>}</ul>
-            </details></li>
-          }
-        </ul>
-      </details>
-    </li>
-  }
-</ul>
+<div>
+  <app-music-view />
+</div>
+<div>
+  <app-playlists-view />
+</div>
